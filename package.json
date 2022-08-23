@@ -1,0 +1,22 @@
+{
+  "name": "statistics_service",
+  "version": "1.0.0",
+  "description": "This is the API for interaction with the statistics display in calentodo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rpp35-boc-perlman/statistics_service.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rpp35-boc-perlman/statistics_service/issues"
+  },
+  "homepage": "https://github.com/rpp35-boc-perlman/statistics_service#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
