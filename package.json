@@ -4,7 +4,8 @@
   "description": "This is the API for interaction with the statistics display in calentodo",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,10 @@
   },
   "homepage": "https://github.com/rpp35-boc-perlman/statistics_service#readme",
   "dependencies": {
-    "express": "^4.18.1"
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "knex": "^2.2.0",
+    "nodemon": "^2.0.19",
+    "pg": "^8.8.0"
   }
 }
