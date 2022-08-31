@@ -26,7 +26,14 @@ app.get('/statistics', (req, res) => {
     })
 })
 
-
+app.use((err, req, res, next) => {
+  console.log('Error', err.message)
+  res.status(500).json({
+    status: 500,
+    message: 'An error occured',
+    error: err.message
+  })
+})
 app.listen(port, () => {
   console.log(`app listening on port ${port}`);
 })
