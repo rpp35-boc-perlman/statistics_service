@@ -14,7 +14,6 @@ app.get('/', (req, res) => {
 })
 
 app.get('/statistics', (req, res) => {
-  console.log(req.query);
   db.select('todo_id', 'start_date', 'end_date', 'todo_body', 'category')
     .from('todos')
     .where('user_id', req.query.user_id)
