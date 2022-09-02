@@ -15,9 +15,7 @@ app.get('/', (req, res) => {
 
 app.get('/statistics', (req, res) => {
   console.log(req.query);
-  if (req.query.user_id || req.query.user_id === '') {
-    res.status(500).send('a user ID is required');
-  } else {
+  if (req.query.user_id) {
     db.select('todo_id', 'start_date', 'end_date', 'todo_body', 'category')
       .from('todos')
       .where('user_id', req.query.user_id)
@@ -27,6 +25,8 @@ app.get('/statistics', (req, res) => {
       .catch((err) => {
         res.status(500).send('There was a server error', err);
       })
+  } else {
+      res.status(500).send('a user ID is required');
   }
 })
 
