@@ -14,15 +14,20 @@ app.get('/', (req, res) => {
 })
 
 app.get('/statistics', (req, res) => {
-  db.select('todo_id', 'start_date', 'end_date', 'todo_body', 'category')
-    .from('todos')
-    .where('user_id', req.query.user_id)
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send('There was a server error', err);
-    })
+  console.log(req.query);
+  if (req.query.user_id || req.query.user_id === '') {
+    res.status(500).send('a user ID is required');
+  } else {
+    db.select('todo_id', 'start_date', 'end_date', 'todo_body', 'category')
+      .from('todos')
+      .where('user_id', req.query.user_id)
+      .then((data) => {
+        res.send(data);
+      })
+      .catch((err) => {
+        res.status(500).send('There was a server error', err);
+      })
+  }
 })
 
 app.use((err, req, res, next) => {
