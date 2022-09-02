@@ -14,10 +14,10 @@ app.get('/', (req, res) => {
 })
 
 app.get('/statistics', (req, res) => {
-  console.log(req.body);
+  console.log(req.query);
   db.select('todo_id', 'start_date', 'end_date', 'todo_body', 'category')
     .from('todos')
-    .where('user_id', req.body.user_id)
+    .where('user_id', req.query.user_id)
     .then((data) => {
       res.send(data);
     })
@@ -29,7 +29,6 @@ app.get('/statistics', (req, res) => {
 app.use((err, req, res, next) => {
   console.log('Error', err.message)
   res.status(500).json({
-    status: 500,
     message: 'An error occured',
     error: err.message
   })
